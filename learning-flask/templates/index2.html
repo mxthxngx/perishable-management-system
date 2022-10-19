@@ -1,0 +1,28 @@
+{% extends 'orderDetails.html' %}
+
+{% block content %}
+<h2>{% block title %} Order Details {% endblock %}</h2>
+<button class = "add-item"> <a href="{{ url_for('create') }}" style="text-decoration: none;color:aliceblue">+ Add Item</a></button>
+			<tr><th>ID</th>
+            <th>Customer Name</th>
+            <th>Sales channel</th>
+            <th>Destination</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            </tr>
+            
+                {% for order in orderdeets %}	
+
+			<tr><td>	<div class="table-data">{{ order['id'] }}</div></td>
+            <td><div class="table-data">{{ order['customer_name'] }}</td></div>
+                	
+			<td><div class="table-data">{{ order['sales_channel'] }}</td></div>
+			<td><div class="table-data">{{ order['destination'] }}</td></div>
+				<td><div class="table-data">{{ order['items'] }}</td></div>
+                <td><div class="table-data">{{ order['item_status'] }}</td></div>
+
+            </tr>
+                {% endfor %}
+`
+		
+{% endblock  %}

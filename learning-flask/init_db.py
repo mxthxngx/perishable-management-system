@@ -7,13 +7,13 @@ with open('schema.sql') as f:
 
 cur = connection.cursor()
 
-cur.execute("INSERT INTO orderDetails (customer_name, sales_channel,destination,items, item_status) VALUES (?,?,?,?,?)",
-            ('Mathangi', 'raj shop','blore',6,'Delivered')
+cur.execute("INSERT INTO orderDetails (partner_name,destination,item_name,items, item_status) VALUES (?,?,?,?,?)",
+            ('Mathangi','blore','soap',6,'Delivered')
             )
 
-cur.execute("INSERT INTO orderDetails (customer_name, sales_channel,destination,items, item_status) VALUES (?,?,?,?,?)",
-            ('Anu', 'Krish shop','blore',5,'Pending')
-            )
+cur.execute("INSERT INTO stockDetails (item_name,items_available,items_total, action_needed) VALUES (?,?,?,?)",
+            ('soap',6,6,'full'))
+
 
 
 connection.commit()
